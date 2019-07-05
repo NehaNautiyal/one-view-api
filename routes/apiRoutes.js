@@ -11,11 +11,11 @@ module.exports = function (app) {
 
         console.log(req.body);
 
-        let reviewText = [];
+        let amazonReviewText = [];
         let numReviews = 0;
-        let rating = [];
-        let author = [];
-        let reviewDate = [];
+        let amazonRating = [];
+        let amazonAuthor = [];
+        let amazonReviewDate = [];
         let totalReviewCount = 1000;
         let averageStarRating = 0;
 
@@ -49,32 +49,19 @@ module.exports = function (app) {
                     $(".review-text").each(function (i, element) {
                         // Push to an empty array
                         if ($(this).text().trim()) {
-                            reviewText = ($(this).text().trim());
+                            amazonReviewText.push($(this).text().trim());
                         }
                         numReviews++;
                         // console.log(reviewText);
                         // console.log("reviewText");
                         console.log(`Total reviews added: ${numReviews}`);
 
-                        let result = {
-                            reviewText: reviewText
-                        }
-
-                        db.Review.create(result)
-                        .then(function (dbReview) {
-                            console.log("Created!")
-                        })
-                        .catch(function (err) {
-                            // If an error occurred, log it
-                            console.log(err);
-                        });
-
                     });
 
                     $(".review-date").each(function (i, element) {
                         // Push to an empty array
                         if ($(this).text().trim()) {
-                            reviewDate.push($(this).text().trim());
+                            amazonReviewDate.push($(this).text().trim());
                         }
                         // console.log(reviewDate);
                     });
@@ -82,31 +69,48 @@ module.exports = function (app) {
                     $(".review-rating").each(function (i, element) {
                         // Push to an empty array
                         if ($(this).text().trim()) {
-                            rating.push($(this).text().trim());
-                        }    
+                            amazonRating.push($(this).text().trim());
+                        }
                         // console.log(rating);
                     });
 
                     $(".a-profile-name").each(function (i, element) {
                         // Push to an empty array
                         if ($(this).text().trim()) {
-                        author.push($(this).text().trim());
+                            amazonAuthor.push($(this).text().trim());
                         }
                     });
 
-                   
+
+                }).then((response) => {
+                    //  Create a new document in Mongo by creating a `result` object built from scraping
+                    for (let i = 0; i < amazonReviewText.length; i++) {
+                        let result = {
+                            reviewText: amazonReviewText[i],
+                            starRating: amazonRating[i],
+                            author: amazonAuthor[i],
+                            date: amazonReviewDate[i]
+                        };
+
+                        db.Review.create(result)
+                            .then(function (dbReview) {
+                                console.log("Created!")
+                            })
+                            .catch(function (err) {
+                                // If an error occurred, log it
+                                console.log(err);
+                            });
+
+
+                    }
+
+
+
+
+
+
                 })
         }
-
-         // Create a new document in Mongo by creating a `result` object built from scraping
-        //  for (let i = 0; i < reviewText.length; i++) {
-        //     let result = {};
-        //     // result.author = author[i];
-        //     // result.starRating = rating[i];
-        //     result.reviewText += reviewText[i];
-            
-           
-        //     }
 
         // Send a message to the client
         res.redirect("/api/reviews");
