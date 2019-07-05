@@ -1,16 +1,27 @@
 // Require all models
-var db = require("../models");
+const db = require("../models");
 
 // Require axios to make the AJAX call
-var axios = require("axios");
+const axios = require("axios");
 
 // Require cheerio for scraping the website
-var cheerio = require("cheerio");
+const cheerio = require("cheerio");
+
+const nluWatson = require("../lib/nlu");
 
 module.exports = function (app) {
 
     // A GET route for scraping the amazon page
     app.get("/api/scrape", function (req, res) {
+
+        //Delete all the current reviews in the database first
+        db.Review.deleteMany()
+            .then(function (reviews) {
+                res.json(reviews);
+            })
+            .catch(function (error) {
+                res.json(error);
+            });
 
         console.log(req.body); // currently undefined
 
@@ -43,7 +54,7 @@ module.exports = function (app) {
 
         // Loop through all the pages of reviews
         for (let page = 1; page < (totalReviewCount / 10); page++) {
-            let asin = "B06XWG7H3S"; // what we need to get from front-end with extension
+            let asin = "B07TD89MX1"; // what we need to get from front-end with extension
             let queryURL = "https://www.amazon.com/product-reviews/" + asin + "/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=" + page + "&sortBy=recent";
             
             axios.get(queryURL).then((response) => {
@@ -106,6 +117,14 @@ module.exports = function (app) {
                             });
                     }
                 })
+                // The below code is not currently working. Error is saying nluWatson.analyzeReviews() is not a function
+                // and that there is Unhandled Promise Rejection originating by throwing inside of an async function without 
+                //a catch block or by rejecting a promise which was not handed with .catch() (rejection id: 100)
+                
+                // .then(reviews => {
+                //     console.log("right before watson analysis")
+                //     res.send(nluWatson.analyzeReviews());
+                // })
         }
 
         // Redirect to see the json with all the reviews and data
