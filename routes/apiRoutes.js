@@ -16,83 +16,82 @@ module.exports = function (app) {
         let rating = [];
         let author = [];
         let reviewDate = [];
-        let totalReviewCount = 1;
+        let totalReviewCount = 1000;
         let averageStarRating = 0;
 
-        // First, we grab the body of the html with axios
-        axios.get("https://www.amazon.com/King-Koil-Luxury-Raised-Mattress/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1")
-            .then(response => {
+        // // First, we grab the body of the html with axios
+        // axios.get("https://www.amazon.com/King-Koil-Luxury-Raised-Mattress/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1")
+        //     .then(response => {
 
-                // Then, we load that into cheerio and save it to $ for a shorthand selector
-                var $ = cheerio.load(response.data);
+        //             // Then, we load that into cheerio and save it to $ for a shorthand selector
+        //             var $ = cheerio.load(response.data);
 
-                // Now, we grab every h2 within an article tag, and do the following:
-                $(".a-fixed-left-grid").each(function (i, element) {
-                    if ($(this).find(".totalReviewCount").text()) {
-                        totalReviewCount = $(this).find(".totalReviewCount").text();
-                    }
-                    if ($(this).find(".averageStarRating").text()) {
-                        averageStarRating = $(this).find(".averageStarRating").text();
-                    }
-
-                    console.log(`totalReviews: ${totalReviewCount}`)
-                    console.log(`Average Star Rating: ${averageStarRating}`)
-
-                })
-            }).then((response) => {
+        //             // Now, we grab every h2 within an article tag, and do the following:
+        //             $(".a-fixed-left-grid").each(function (i, element) {
+        //                 if ($(this).find(".totalReviewCount").text()) {
+        //                     totalReviewCount = $(this).find(".totalReviewCount").text();
+        //                 }
+        //                 if ($(this).find(".averageStarRating").text()) {
+        //                     averageStarRating = $(this).find(".averageStarRating").text();
+        //                 }
+        //                 console.log(`totalReviews: ${totalReviewCount}`)
+        //                 console.log(`Average Star Rating: ${averageStarRating}`)
+        //             });
+        // }).then((response) => {
 
 
-                for (let page = 1; page < (totalReviewCount / 10); page++) {
-                    axios.get("https://www.amazon.com/King-Koil-Luxury-Raised-Mattress/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=" + page)
-                        .then((response) => {
+        for (let page = 1; page < (totalReviewCount / 10); page++) {
+            axios.get("https://www.amazon.com/King-Koil-Luxury-Raised-Mattress/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=" + page)
+                .then((response) => {
 
-                            var $ = cheerio.load(response.data);
+                    var $ = cheerio.load(response.data);
 
-                            $(".review-text").each(function (i, element) {
-                                // Push to an empty array
-                                reviewText.push($(this).text().trim());
-                                numReviews++;
-                                // console.log(reviewText);
-                                // console.log("reviewText");
-                                console.log(`Total reviews added: ${numReviews}`);
-                                console.log(reviewText);
-                                console.log("reviewText");
-                            });
+                    $(".review-text").each(function (i, element) {
+                        // Push to an empty array
+                        if ($(this).text().trim()) {
+                            reviewText.push($(this).text().trim());
+                        }
+                        numReviews++;
+                        // console.log(reviewText);
+                        // console.log("reviewText");
+                        console.log(`Total reviews added: ${numReviews}`);
+                        console.log(reviewText);
+                        console.log("reviewText");
+                    });
 
-                            $(".review-date").each(function (i, element) {
-                                // Push to an empty array
-                                reviewDate.push($(this).text().trim());
-                            });
+                    $(".review-date").each(function (i, element) {
+                        // Push to an empty array
+                        reviewDate.push($(this).text().trim());
+                    });
 
-                            $(".review-rating").each(function (i, element) {
-                                // Push to an empty array
-                                rating.push($(this).text().trim());
-                            });
+                    $(".review-rating").each(function (i, element) {
+                        // Push to an empty array
+                        rating.push($(this).text().trim());
+                    });
 
-                            $(".a-profile-name").each(function (i, element) {
-                                // Push to an empty array
-                                author.push($(this).text().trim());
-                            });
-
-                        })
-                }
-            }).then(response => {
-
-                // Create a new Article using the `result` object built from scraping
-                // db.Review.create(result)
-                //     .then(function (dbReview) {
-                //         console.log("Created!")
-                //     })
-                //     .catch(function (err) {
-                //         // If an error occurred, log it
-                //         console.log(err);
-                //     });
-
+                    $(".a-profile-name").each(function (i, element) {
+                        // Push to an empty array
+                        author.push($(this).text().trim());
+                    });
                 
 
-                // Send a message to the client
-                res.redirect("/");
-            });
+                })
+            }
+
+        // Create a new Article using the `result` object built from scraping
+        // db.Review.create(result)
+        //     .then(function (dbReview) {
+        //         console.log("Created!")
+        //     })
+        //     .catch(function (err) {
+        //         // If an error occurred, log it
+        //         console.log(err);
+        //     });
+
+
+
+        // Send a message to the client
+        res.redirect("/");
 });
 
 // Route for getting all Reviews from the db
