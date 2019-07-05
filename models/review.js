@@ -2,14 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema({
-  ASIN: { 
-      type: String, 
-      // required: true 
-    },
   reviewText: { 
       type: String,
     required: true },
-  starRating: Number,
+  starRating: String,
   author: String,
   date: { type: Date, default: Date.now }
 });

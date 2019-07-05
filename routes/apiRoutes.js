@@ -49,62 +49,75 @@ module.exports = function (app) {
                     $(".review-text").each(function (i, element) {
                         // Push to an empty array
                         if ($(this).text().trim()) {
-                            reviewText.push($(this).text().trim());
+                            reviewText = ($(this).text().trim());
                         }
                         numReviews++;
                         // console.log(reviewText);
                         // console.log("reviewText");
                         console.log(`Total reviews added: ${numReviews}`);
-                        console.log(reviewText);
-                        console.log("reviewText");
+
+                        let result = {
+                            reviewText: reviewText
+                        }
+
+                        db.Review.create(result)
+                        .then(function (dbReview) {
+                            console.log("Created!")
+                        })
+                        .catch(function (err) {
+                            // If an error occurred, log it
+                            console.log(err);
+                        });
+
                     });
 
                     $(".review-date").each(function (i, element) {
                         // Push to an empty array
-                        reviewDate.push($(this).text().trim());
+                        if ($(this).text().trim()) {
+                            reviewDate.push($(this).text().trim());
+                        }
+                        // console.log(reviewDate);
                     });
 
                     $(".review-rating").each(function (i, element) {
                         // Push to an empty array
-                        rating.push($(this).text().trim());
+                        if ($(this).text().trim()) {
+                            rating.push($(this).text().trim());
+                        }    
+                        // console.log(rating);
                     });
 
                     $(".a-profile-name").each(function (i, element) {
                         // Push to an empty array
+                        if ($(this).text().trim()) {
                         author.push($(this).text().trim());
+                        }
                     });
 
-                    // Create a new document in Mongo by creating a `result` object built from scraping
-                    // let result = {};
-                    // for ()
-                    // db.Review.create(result)
-                    //     .then(function (dbReview) {
-                    //         console.log("Created!")
-                    //     })
-                    //     .catch(function (err) {
-                    //         // If an error occurred, log it
-                    //         console.log(err);
-                    //     });
-
-
-
+                   
                 })
         }
 
-
-
-
+         // Create a new document in Mongo by creating a `result` object built from scraping
+        //  for (let i = 0; i < reviewText.length; i++) {
+        //     let result = {};
+        //     // result.author = author[i];
+        //     // result.starRating = rating[i];
+        //     result.reviewText += reviewText[i];
+            
+           
+        //     }
 
         // Send a message to the client
-        res.redirect("/");
+        res.redirect("/api/reviews");
     });
 
     // Route for getting all Reviews from the db
     app.get("/api/reviews", function (req, res) {
         // grabs all of the reviews
         db.Review.find({})
-            .then(function (articles) {
-                res.json(articles);
+            .then(function (reviews) {
+                res.json(reviews);
             })
             .catch(function (error) {
                 res.json(error);
