@@ -1,32 +1,34 @@
 // Require all models
 var db = require("../models");
-var Review = require("../models/review");
+
+// Require axios to make the AJAX call
 var axios = require("axios");
+
+// Require cheerio for scraping the website
 var cheerio = require("cheerio");
 
 module.exports = function (app) {
 
-    // A GET route for scraping the echoJS website
+    // A GET route for scraping the amazon page
     app.get("/api/scrape", function (req, res) {
 
-        console.log(req.body);
+        console.log(req.body); // currently undefined
 
         let amazonReviewText = [];
         let numReviews = 0;
         let amazonRating = [];
         let amazonAuthor = [];
         let amazonReviewDate = [];
-        let totalReviewCount = 1000;
+        let totalReviewCount = 1000; // could be more or less, but having trouble finding this out and then looping through the pages
         let averageStarRating = 0;
 
-        // // First, we grab the body of the html with axios
+        // // First, we grab the total number of reviews with axios
         // axios.get("https://www.amazon.com/King-Koil-Luxury-Raised-Mattress/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1")
         //     .then(response => {
 
         //             // Then, we load that into cheerio and save it to $ for a shorthand selector
         //             var $ = cheerio.load(response.data);
 
-        //             // Now, we grab every h2 within an article tag, and do the following:
         //             $(".a-fixed-left-grid").each(function (i, element) {
         //                 if ($(this).find(".totalReviewCount").text()) {
         //                     totalReviewCount = $(this).find(".totalReviewCount").text();
@@ -39,10 +41,12 @@ module.exports = function (app) {
         //             });
         // }).then((response) => {
 
-
+        // Loop through all the pages of reviews
         for (let page = 1; page < (totalReviewCount / 10); page++) {
-            axios.get("https://www.amazon.com/product-reviews/B06XWG7H3S/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=" + page + "&sortBy=recent")
-                .then((response) => {
+            let asin = "B06XWG7H3S"; // what we need to get from front-end with extension
+            let queryURL = "https://www.amazon.com/product-reviews/" + asin + "/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=" + page + "&sortBy=recent";
+            
+            axios.get(queryURL).then((response) => {
 
                     var $ = cheerio.load(response.data);
 
@@ -100,19 +104,11 @@ module.exports = function (app) {
                                 // If an error occurred, log it
                                 console.log(err);
                             });
-
-
                     }
-
-
-
-
-
-
                 })
         }
 
-        // Send a message to the client
+        // Redirect to see the json with all the reviews and data
         res.redirect("/api/reviews");
     });
 
@@ -130,7 +126,7 @@ module.exports = function (app) {
 
     // Route for deleting all Reviews from the db
     app.delete("/api/reviews", function (req, res) {
-        // grabs all of the reviews
+        // grabs all of the reviews to delete
         db.Review.deleteMany()
             .then(function (reviews) {
                 res.json(reviews);
@@ -153,7 +149,7 @@ module.exports = function (app) {
 
 
     app.put("/reviews/saved/:id", function (req, res) {
-        // grabs all of the reviews
+        // changes unsaved to saved (or vice verse)
         db.Review.findOneAndUpdate({ _id: req.params.id }, { saved: false }, { new: true })
             .then(function (reviews) {
                 res.json(reviews);

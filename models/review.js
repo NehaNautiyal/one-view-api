@@ -7,7 +7,14 @@ const ReviewSchema = new Schema({
     required: true },
   starRating: String,
   author: String,
-  date: { type: Date, default: Date.now }
+  date: { 
+    type: Date, 
+    default: Date.now 
+  },
+  saved: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const Review = mongoose.model("Review", ReviewSchema);
