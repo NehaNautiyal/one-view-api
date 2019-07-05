@@ -127,8 +127,25 @@ module.exports = function (app) {
                 // })
         }
 
+        // console.log(nluWatson.analyzeReviews('waterproof'));
+
         // Redirect to see the json with all the reviews and data
-        res.redirect("/api/reviews");
+        res.redirect("/api/analyze");
+    });
+
+    // Route for getting all analyzing reviews using Watson
+    app.get("/api/analyze", function (req, res) {
+        // grabs all of the reviews
+        // nluWatson.analyzeReviews('waterproof')
+        nluWatson.logSomething('hello World')
+            .then(function (analysis) {
+                console.log(analysis);
+                console.log('analysis from Watson');
+                res.json(analysis);
+            })
+            .catch(function (error) {
+                res.json(error);
+            });
     });
 
     // Route for getting all Reviews from the db
