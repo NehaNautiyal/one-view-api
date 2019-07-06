@@ -8,7 +8,11 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 const Watson = require("../lib/nlu");
-const watson = new Watson();
+const watson = new Watson({
+    version: '2018-11-16',
+    iam_apikey: process.env.NLU_IAM_APIKEY,
+    url: process.env.NLU_URL
+});
 
 const Scrape = require("../lib/scrape");
 const scrape = new Scrape();
