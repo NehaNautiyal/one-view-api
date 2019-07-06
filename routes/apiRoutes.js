@@ -20,8 +20,7 @@ module.exports = function (app) {
 
         console.log(req.body); // currently undefined
 
-        
-        let totalReviewCount = 0; // could be more or less, but having trouble finding this out and then looping through the pages
+        let totalReviewCount = 0;
         let averageStarRating = 0;
 
         // First, we grab the total number of reviews with axios
@@ -43,20 +42,14 @@ module.exports = function (app) {
                     });
         }).then((response) => { scrape.scrapeReviews(totalReviewCount) })
         .catch((error) => {console.log(error)})
-                
-            // .then(reviews => {
-            //     console.log("right before watson analysis")
-            //     res.send(nluWatson.analyzeReviews());
-            // })
 
         // Redirect to see the json with all the reviews and data
-        // res.redirect("/api/analyze");
         res.redirect("/api/reviews");
     });
 
     // Route for getting all analyzing reviews using Watson
     app.get("/api/analyze", function (req, res) {
-        watson.analyzeReviews()
+        watson.analyzeReviews("hello. I don't like this product. I do not recommend it")
             .then(function (analysis) {
                 console.log(analysis);
                 console.log('analysis from Watson');
