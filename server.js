@@ -1,5 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var cors = require("cors");
 
 var PORT = process.env.PORT || 3000;
 
@@ -11,6 +12,8 @@ app.use(express.static("public"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(cors());
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/oneviewreviews";
