@@ -44,19 +44,10 @@ module.exports = function (app) {
         }).then((response) => { scrape.scrapeReviews(totalReviewCount) })
         .catch((error) => {console.log(error)})
                 
-                
-            
-            // The below code is not currently working. Error is saying nluWatson.analyzeReviews() is not a function
-            // and that there is Unhandled Promise Rejection originating by throwing inside of an async function without 
-            //a catch block or by rejecting a promise which was not handed with .catch() (rejection id: 100)
-
             // .then(reviews => {
             //     console.log("right before watson analysis")
             //     res.send(nluWatson.analyzeReviews());
             // })
-        
-
-        // console.log(nluWatson.analyzeReviews('waterproof'));
 
         // Redirect to see the json with all the reviews and data
         // res.redirect("/api/analyze");
@@ -65,9 +56,7 @@ module.exports = function (app) {
 
     // Route for getting all analyzing reviews using Watson
     app.get("/api/analyze", function (req, res) {
-        // grabs all of the reviews
-        // nluWatson.analyzeReviews('waterproof')
-        watson.logSomething('hello World')
+        watson.analyzeReviews()
             .then(function (analysis) {
                 console.log(analysis);
                 console.log('analysis from Watson');
