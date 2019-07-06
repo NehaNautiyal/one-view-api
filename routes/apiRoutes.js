@@ -1,6 +1,8 @@
 // Require all models
 const db = require("../models");
 
+const cors = require("cors");
+
 // Require axios to make the AJAX call
 const axios = require("axios");
 
@@ -46,9 +48,9 @@ module.exports = function (app) {
             });
     });
 
-    app.post("/api/post", function(req, res) {
+    app.post("/api/post", cors(), function(req, res) {
         console.log("post successful");
-        res.status(200).send("post successful");
+        res.json({message: "post successful"});
     })
 
     // Route for deleting all Reviews from the db
