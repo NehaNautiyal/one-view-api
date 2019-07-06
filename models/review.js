@@ -5,12 +5,13 @@ const ReviewSchema = new Schema({
   reviewText: { 
       type: String,
     required: true },
-  starRating: String,
-  author: String,
+  // starRating: String,
+  // author: String,
   date: { 
     type: Date, 
     default: Date.now 
-  }
+  },
+  reviewTitle: String
 });
 
 const Review = mongoose.model("Review", ReviewSchema);
