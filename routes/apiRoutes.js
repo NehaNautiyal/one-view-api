@@ -10,8 +10,6 @@ const cheerio = require("cheerio");
 const Watson = require("../lib/nlu");
 const watson = new Watson();
 
-
-
 const Scrape = require("../lib/scrape");
 const scrape = new Scrape();
 
@@ -20,31 +18,11 @@ module.exports = function (app) {
     // A GET route for scraping the amazon page
     app.get("/api/scrape", function (req, res) {
 
-        console.log(req.body); // currently undefined
-
         let totalReviewCount = 0;
         let averageStarRating = 0;
-        let ASIN = "B07TD89MX1";
+        let ASIN = "B07TD89MX1"; // ideally data from the front-end... EVENTUALLY!
 
-        // First, we grab the total number of reviews with axios
-        axios.get("https://www.amazon.com/product-reviews/" + ASIN + "/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=1&sortBy=recent")
-            .then(response => {
-
-                    // Then, we load that into cheerio and save it to $ for a shorthand selector
-                    var $ = cheerio.load(response.data);
-
-                    $(".a-fixed-left-grid").each(function (i, element) {
-                        if ($(this).find(".totalReviewCount").text()) {
-                            totalReviewCount = $(this).find(".totalReviewCount").text();
-                        }
-                        if ($(this).find(".averageStarRating").text()) {
-                            averageStarRating = $(this).find(".averageStarRating").text();
-                        }
-                        console.log(`totalReviews: ${totalReviewCount}`)
-                        console.log(`Average Star Rating: ${averageStarRating}`)
-                    });
-        }).then((response) => { scrape.scrapeReviews(totalReviewCount, "B07TD89MX1") })
-        .catch((error) => {console.log(error)})
+       scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN)
 
         // Redirect to see the json with all the reviews and data
         res.redirect("/api/reviews");
@@ -52,15 +30,8 @@ module.exports = function (app) {
 
     // Route for getting all analyzing reviews using Watson
     app.get("/api/analyze", function (req, res) {
-        watson.analyzeReviews()
-            .then(function (analysis) {
-                console.log(analysis);
-                console.log('analysis from Watson');
-                res.json(analysis);
-            })
-            .catch(function (error) {
-                res.json(error);
-            });
+        
+        
     });
 
     // Route for getting all Reviews from the db
