@@ -51,7 +51,7 @@ module.exports = function (app) {
 
     // Route for getting all analyzing reviews using Watson
     app.get("/api/analyze", function (req, res) {
-        watson.analyzeReviews("hello. I don't like this product. I do not recommend it")
+        watson.analyzeReviews()
             .then(function (analysis) {
                 console.log(analysis);
                 console.log('analysis from Watson');
@@ -73,6 +73,11 @@ module.exports = function (app) {
                 res.json(error);
             });
     });
+
+    app.post("/api/post", function(req, res) {
+        console.log("post successful");
+        res.status(200).send("post successful");
+    })
 
     // Route for deleting all Reviews from the db
     app.delete("/api/reviews", function (req, res) {
