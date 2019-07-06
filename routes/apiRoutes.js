@@ -74,7 +74,7 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/api/post", function(req, res) {
+    app.post("/api/post", function(req, res) {
         console.log("post successful");
         res.status(200).send("post successful");
     })
