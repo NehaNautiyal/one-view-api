@@ -24,9 +24,10 @@ module.exports = function (app) {
 
         let totalReviewCount = 0;
         let averageStarRating = 0;
+        let ASIN = "B07TD89MX1";
 
         // First, we grab the total number of reviews with axios
-        axios.get("https://www.amazon.com/product-reviews/B07TD89MX1/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=1&sortBy=recent")
+        axios.get("https://www.amazon.com/product-reviews/" + ASIN + "/ref=cm_cr_arp_d_viewopt_srt?ie=UTF8&reviewerType=avp_only_reviews&pageNumber=1&sortBy=recent")
             .then(response => {
 
                     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -42,7 +43,7 @@ module.exports = function (app) {
                         console.log(`totalReviews: ${totalReviewCount}`)
                         console.log(`Average Star Rating: ${averageStarRating}`)
                     });
-        }).then((response) => { scrape.scrapeReviews(totalReviewCount) })
+        }).then((response) => { scrape.scrapeReviews(totalReviewCount, "B07TD89MX1") })
         .catch((error) => {console.log(error)})
 
         // Redirect to see the json with all the reviews and data
