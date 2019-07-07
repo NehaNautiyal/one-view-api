@@ -3,11 +3,9 @@ const db = require("../models");
 
 const cors = require("cors");
 
-// Require axios to make the AJAX call
-const axios = require("axios");
+const bodyParser = require('body-parser');
 
-// Require cheerio for scraping the website
-const cheerio = require("cheerio");
+const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 const Watson = require("../lib/nlu");
 const watson = new Watson();
@@ -48,8 +46,9 @@ module.exports = function (app) {
             });
     });
 
-    app.post("/api/post", cors(), function(req, res) {
+    app.post("/api/post", urlencodedParser, function(req, res) {
         console.log("post successful");
+        console.log(req.body);
         res.json({message: "post successful"});
     })
 
