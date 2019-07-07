@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const bodyParser = require('body-parser');
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false});
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const Watson = require("../lib/nlu");
 const watson = new Watson();
@@ -13,26 +13,27 @@ const watson = new Watson();
 const Scrape = require("../lib/scrape");
 const scrape = new Scrape();
 
+const asyncMiddleware = fn =>
+  (req, res, next) => {
+    Promise.resolve(fn(req, res, next))
+      .catch(next);
+  };
+
 module.exports = function (app) {
 
     // A GET route for scraping the amazon page
-    app.get("/api/scrape", function (req, res) {
+    // app.get("/api/scrape", function (req, res) {
 
-        let totalReviewCount = 0;
-        let averageStarRating = 0;
-        let ASIN = "B07TD89MX1"; // ideally data from the front-end... EVENTUALLY!
+    //     let totalReviewCount = 0;
+    //     let averageStarRating = 0;
+    //     let ASIN = "B07TD89MX1"; // ideally data from the front-end... EVENTUALLY!
 
-       scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN)
+    //     scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN)
 
-        // Redirect to see the json with all the reviews and data
-        res.redirect("/api/reviews");
-    });
+    //     // Redirect to see the json with all the reviews and data
+    //     res.redirect("/api/reviews");
+    // });
 
-    // Route for getting all analyzing reviews using Watson
-    app.get("/api/analyze", function (req, res) {
-        
-        
-    });
 
     // Route for getting all Reviews from the db
     app.get("/api/reviews", function (req, res) {
@@ -46,11 +47,31 @@ module.exports = function (app) {
             });
     });
 
-    app.post("/api/post", urlencodedParser, function(req, res) {
+    app.post("/api/post", cors(), urlencodedParser, function (req, res) {
         console.log("post successful");
-        console.log(req.body);
-        res.json({message: "post successful"});
-    })
+
+        console.log(req.body); // { '{"ASIN":"B07DH7FNSV"}': '' }  
+
+
+        let totalReviewCount = 0;
+        let averageStarRating = 0;
+        let ASIN = req.body.ASIN;
+        let keywords = req.body.keywords; // need conditional to set the variables if keywords exist
+
+        console.log(`ASIN: ${ASIN}`)
+
+        scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN, function(results) {
+            console.log(`results: ${results}`);
+            res.json(results);
+        });
+        
+    });
+
+       // Route for getting all analyzing reviews using Watson
+       app.get("/api/analyze", function (req, res) {
+
+
+    });
 
     // Route for deleting all Reviews from the db
     app.delete("/api/reviews", function (req, res) {
