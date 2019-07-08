@@ -50,41 +50,15 @@ module.exports = function (app) {
     app.post("/api/post", cors(), urlencodedParser, function (req, res) {
         console.log("post successful");
 
-        console.log(req.body); // { '{"ASIN":"B07DH7FNSV"}': '' }  
-
-
         let totalReviewCount = 0;
         let averageStarRating = 0;
         let ASIN = req.body.ASIN;
-        let keywordString;
-        let keywordArray;
-        let keyword1;
-        let keyword2;
-        let keyword3;
-
-        if (req.body.keywords) {
-            keywordString = req.body.keywords;
-            keywordArray = keywordString.split(',');
-            if (keywordArray.length === 3) {
-                keyword1 = keywordArray[0];
-                keyword2 = keywordArray[1];
-                keyword3 = keywordArray[2];
-            } else if (keywordArray.length === 2) {
-                keyword1 = keywordArray[0];
-                keyword2 = keywordArray[1];
-            } else if (keywordArray.length === 1) {
-                keyword1 = keywordArray[0];
-            }
-        }
+        let keywordString = req.body.keywords;
         
-        console.log(`ASIN: ${ASIN}`);
-        console.log(`keyword1: ${keyword1}, keyword2: ${keyword2}, keyword3: ${keyword3}`);
-
-
-        scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN, function(results) {
-            console.log(`results: ${results}`);
-            res.json({"message": results});
-        });
+            scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN, keywordString, function(results) {
+                console.log(`results: ${results}`);
+                res.json({"message": results});
+            });
         // res.json({"message": "hello"});        
     });
 
