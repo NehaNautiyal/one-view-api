@@ -50,9 +50,6 @@ module.exports = function (app) {
     app.post("/api/post", cors(), urlencodedParser, function (req, res) {
         console.log("post successful");
 
-        console.log(req.body); // { '{"ASIN":"B07DH7FNSV"}': '' }  
-
-
         let totalReviewCount = 0;
         let averageStarRating = 0;
         let ASIN = req.body.ASIN;
