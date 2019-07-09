@@ -13,11 +13,22 @@ const watson = new Watson();
 const Scrape = require("../lib/scrape");
 const scrape = new Scrape();
 
-const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next))
-      .catch(next);
-  };
+async function yellow(ASIN, keywordString) {
+    try {
+        let totalReviewCount2 = await scrape.scrapeTotalReviews(ASIN);
+        console.log(`totalReviewCount in async function: ${totalReviewCount2}`);
+        let reviews = await scrape.scrapeReviews(totalReviewCount2, ASIN);
+        console.log(`reviews in async function:`);
+        console.log(reviews);
+        await scrape.deleteAllInMongo();
+        await scrape.inputReviewInMongo(reviews);
+        let analysis = await watson.analyzeAllReviews(reviews, keywordString);
+        return analysis;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 
 module.exports = function (app) {
 
@@ -50,20 +61,22 @@ module.exports = function (app) {
     app.post("/api/post", cors(), urlencodedParser, function (req, res) {
         console.log("post successful");
 
-        let totalReviewCount = 0;
-        let averageStarRating = 0;
         let ASIN = req.body.ASIN;
         let keywordString = req.body.keywords;
-        
-            scrape.scrapeTotalReviews(totalReviewCount, averageStarRating, ASIN, keywordString, function(results) {
-                console.log(`results: ${results}`);
-                res.json({"message": results});
-            });
-        // res.json({"message": "hello"});        
-    });
+        // let totalReviewCount = 0;
 
-       // Route for getting all analyzing reviews using Watson
-       app.get("/api/analyze", function (req, res) {
+        (async () => {
+            let results = await yellow(ASIN, keywordString);
+            console.log(`results: ${JSON.stringify(results)}`);
+            res.json(results);
+        })();
+        
+    });
+    // res.json({"message": "hello"});        
+
+
+    // Route for getting all analyzing reviews using Watson
+    app.get("/api/analyze", function (req, res) {
 
 
     });
