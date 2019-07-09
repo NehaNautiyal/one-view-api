@@ -2,16 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema({
-  reviewText: { 
-      type: String,
-    required: true },
-  // starRating: String,
-  // author: String,
-  date: { 
-    type: Date, 
-    default: Date.now 
+  reviewTitle: String,
+  reviewText: {
+    type: String,
+    required: true
   },
-  reviewTitle: String
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const Review = mongoose.model("Review", ReviewSchema);
