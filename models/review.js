@@ -13,6 +13,8 @@ const ReviewSchema = new Schema({
   }
 });
 
+ReviewSchema.index({ '$**': 'text' });
+
 const Review = mongoose.model("Review", ReviewSchema);
 
 module.exports = Review;
