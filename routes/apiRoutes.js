@@ -13,6 +13,9 @@ const watson = new Watson();
 const Scrape = require("../lib/scrape");
 const scrape = new Scrape();
 
+const Mongo = require("../lib/mongo");
+const mongo = new Mongo();
+
 async function yellow(ASIN, keywordString) {
     try {
         let totalReviewCount2 = await scrape.scrapeTotalReviews(ASIN);
@@ -20,12 +23,15 @@ async function yellow(ASIN, keywordString) {
         let reviews = await scrape.scrapeReviews(totalReviewCount2, ASIN);
         console.log(`reviews in async function:`);
         console.log(reviews);
-        await scrape.deleteAllInMongo();
+        await mongo.deleteAllInMongo();
         console.log("completed delete");
-        await scrape.inputReviewInMongo(reviews);
+        await mongo.inputReviewInMongo(reviews);
         console.log("inserted into mongo");
         let analysis = await watson.analyzeAllReviews(reviews, keywordString);
-        return analysis;
+        let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString);
+        console.log(matchedReviews);
+        console.log("above is matchedReviews");
+        return { analysis, matchedReviews} ;
     }
     catch (err) {
         console.log(err);
