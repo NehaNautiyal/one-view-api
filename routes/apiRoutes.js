@@ -21,7 +21,9 @@ async function yellow(ASIN, keywordString) {
         console.log(`reviews in async function:`);
         console.log(reviews);
         await scrape.deleteAllInMongo();
+        console.log("completed delete");
         await scrape.inputReviewInMongo(reviews);
+        console.log("inserted into mongo");
         let analysis = await watson.analyzeAllReviews(reviews, keywordString);
         return analysis;
     }
@@ -63,11 +65,10 @@ module.exports = function (app) {
 
         let ASIN = req.body.ASIN;
         let keywordString = req.body.keywords;
-        // let totalReviewCount = 0;
 
         (async () => {
             let results = await yellow(ASIN, keywordString);
-            console.log(`results: ${JSON.stringify(results)}`);
+            console.log(`results: ${JSON.stringify(results, null, 2)}`);
             res.json(results);
         })();
         
