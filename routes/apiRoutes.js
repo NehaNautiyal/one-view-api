@@ -20,9 +20,8 @@ async function yellow(ASIN, keywordString) {
     try {
         let totalReviewCount2 = await scrape.scrapeTotalReviews(ASIN);
         console.log(`totalReviewCount in async function: ${totalReviewCount2}`);
-        let reviews = await scrape.scrapeReviews(totalReviewCount2, ASIN);
-        console.log(`reviews in async function:`);
-        console.log(reviews);
+        let reviewArrays = await scrape.scrapeReviews(totalReviewCount2, ASIN);
+        let reviews = await scrape.makeReviewObject(reviewArrays);
         await mongo.deleteAllInMongo();
         console.log("completed delete");
         await mongo.inputReviewInMongo(reviews);
