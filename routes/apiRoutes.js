@@ -24,8 +24,9 @@ async function yellow(ASIN, keywordString) {
         let reviews = await scrape.makeReviewObject(reviewArrays);
         await mongo.deleteAllInMongo();
         console.log("completed delete");
-        let sortedReviews = await mongo.inputAndSortReviewInMongo(reviews);
+        await mongo.inputReviewInMongo(reviews);
         console.log("inserted into mongo");
+        let sortedReviews = await mongo.sortReviewsInMongo();
         let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString);
         let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString);
         console.log(matchedReviews);
