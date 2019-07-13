@@ -16,22 +16,34 @@ const scrape = new Scrape();
 const Mongo = require("../lib/mongo");
 const mongo = new Mongo();
 
+const sample = require("../lib/sample.json");
+
 async function yellow(ASIN, keywordString) {
     try {
         let totalReviewCount2 = await scrape.scrapeTotalReviews(ASIN);
         console.log(`totalReviewCount in async function: ${totalReviewCount2}`);
-        let reviewArrays = await scrape.scrapeReviews(totalReviewCount2, ASIN);
-        let reviews = await scrape.makeReviewObject(reviewArrays);
-        await mongo.deleteAllInMongo();
-        console.log("completed delete");
-        await mongo.inputReviewInMongo(reviews);
-        console.log("inserted into mongo");
-        let sortedReviews = await mongo.sortReviewsInMongo();
-        let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString);
-        let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString);
-        console.log(matchedReviews);
-        console.log("above is matchedReviews");
-        return { analysis, matchedReviews} ;
+        if (totalReviewCount2 === 0) {
+            console.log("Using sample data, not Amazon");
+            let sortedReviews = sample;
+            let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString);
+            let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString);
+            console.log(matchedReviews);
+            console.log("above is matchedReviews");
+            return { analysis, matchedReviews };
+        } else {
+            let reviewArrays = await scrape.scrapeReviews(totalReviewCount2, ASIN);
+            let reviews = await scrape.makeReviewObject(reviewArrays);
+            await mongo.deleteAllInMongo();
+            console.log("completed delete");
+            await mongo.inputReviewInMongo(reviews);
+            console.log("inserted into mongo");
+            let sortedReviews = await mongo.sortReviewsInMongo();
+            let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString);
+            let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString);
+            console.log(matchedReviews);
+            console.log("above is matchedReviews");
+            return { analysis, matchedReviews };
+        }
     }
     catch (err) {
         console.log(err);
@@ -77,7 +89,7 @@ module.exports = function (app) {
             console.log(`results: ${JSON.stringify(results, null, 2)}`);
             res.json(results);
         })();
-        
+
     });
     // res.json({"message": "hello"});        
 
