@@ -27,7 +27,7 @@ async function yellow(ASIN, keywordString) {
             let sortedReviews = sample
             let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString)
             let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString)
-            console.log(matchedReviews)
+            // console.log(matchedReviews)
             console.log('above is matchedReviews')
             return { analysis, matchedReviews }
         } else {
@@ -40,7 +40,7 @@ async function yellow(ASIN, keywordString) {
             let sortedReviews = await mongo.sortReviewsInMongo()
             let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString)
             let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString)
-            console.log(matchedReviews)
+            // console.log(matchedReviews)
             console.log('above is matchedReviews')
             return { analysis, matchedReviews }
         }
@@ -83,7 +83,7 @@ module.exports = function (app) {
 
         (async () => {
             let results = await yellow(ASIN, keywordString)
-            console.log(`results: ${JSON.stringify(results, null, 2)}`)
+            // console.log(`results: ${JSON.stringify(results, null, 2)}`)
             res.json(results)
         })()
 
