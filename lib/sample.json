@@ -1,4 +1,502 @@
 [
-    { "reviewTitle": "This is amazing!", "reviewText": "I love having this garden gnome. I say hi to him every morning, and he makes my dog eat cheese! I could not live without him, he is my special boy!" },
-    { "reviewTitle": "A totally different title!", "reviewText": "Amazing donut revenge never saw me coming left on Polaski Highway all the way to heaven if several small discombobulated loners never once said hi when they went to sleep I could never live it down no never live it down now let me be." }
-] 
+    {
+        "reviewTitle": "Easy function",
+        "reviewText": "Is  very amazing, I never believed it until I bought it.  When I get home, my food is ready.  It really works, I guarantee it 100%",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Excellent product",
+        "reviewText": "exceeded expectations and used daily",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Amazing! Also love the connected feature!",
+        "reviewText": "This thing works as advertised. Just remember: Instant pots cut down on the cooking time. They don't do a thing for the preparation time! If it takes you half an hour to cut up your veggies or cut up you meat or whatever, that will still take a half an hour! But we love our Instant Pot! In my opinion the food just tastes better. Chicken might be a bit on the rubbery side (that's over stating it) but the flavors that come out are amazing. An unexpected benefit.As to the WiFi piece and the app: I have mixed feelings. First of all, it works. It's great to just have the Instant Pot sending me messages like when it changes modes or if there's a problem or how much time is left. That part works great and I love it for that alone. Everything else we control from the front panel of the device so I don't really care about how much control I have of the Instant Pot from my phone. You're trying to save time. Digging out your phone, opening the app, finding the right part of the app to set this up uses up more time. What's the point?!I as well as many others recommend this version of the Instant Pot.",
+        "date": "May 15, 2019"
+    },
+    {
+        "reviewTitle": "Best choice for forgetful cooks",
+        "reviewText": "I've wanted an instant pot for over a year, and finally decided it was time. The wifi version has been worth every penny. The phone on what's going on have made me so much more willing to cook, knowing I wont forget my food and overcook it, or forget there next step. And because it's wifi and not Bluetooth, it doesn't drain my phone.",
+        "date": "May 15, 2019"
+    },
+    {
+        "reviewTitle": "deffective",
+        "reviewText": "after 2 weeks of use, my Instant pot is not warming any more in any of his functions.The wifi connection was never working despite a 2.4 ghz connection..the Amazon seller does not organize a return after one month delivery and the manufacturer warranty does not apply either on Instantpot.com. Nobody is taking responsibility for the deffective item.A total waste of money",
+        "date": "May 14, 2019"
+    },
+    {
+        "reviewTitle": "Release the pressure before taking off the lid",
+        "reviewText": "I had one but got one for my son and daughter-in-law, and they love it also",
+        "date": "May 13, 2019"
+    },
+    {
+        "reviewTitle": "👍",
+        "reviewText": "👍",
+        "date": "May 10, 2019"
+    },
+    {
+        "reviewTitle": "Food can come out flavorless",
+        "reviewText": "is it ok to say I am not in love with my instant pot?? i have cooked pot roast & stew in it. The meat came out flavorless. Yes, it cooked in a lot less time than on the stove top, but, the flavor was sacrificed.",
+        "date": "May 9, 2019"
+    },
+    {
+        "reviewTitle": "LOVE IT!!!",
+        "reviewText": "The only thing that would make this better... if I had chosen to buy a larger capacity unit.  Other wise... I LOVE this machine!!!",
+        "date": "May 8, 2019"
+    },
+    {
+        "reviewTitle": "Love it!",
+        "reviewText": "I absolutely love this instant pot, it’s a definitely a smart cooker. It tells you on your phone when your food need to be stirred and when it’s burning. A must have.",
+        "date": "May 7, 2019"
+    },
+    {
+        "reviewTitle": "Good product",
+        "reviewText": "Instructions could be a little more clear.",
+        "date": "May 4, 2019"
+    },
+    {
+        "reviewTitle": "Love It!",
+        "reviewText": "Everything i expected and more!  Works great!  My favorite is steel cut oats.  Usually takes 30 minutes on the stove (of stirring... and more stirring...)  Now, it takes 15 minutes total and they come out perfect every time!  That's just one example.",
+        "date": "April 29, 2019"
+    },
+    {
+        "reviewTitle": "Good product",
+        "reviewText": "Easy to use simple cooking.Have not got WiFi feature to work but haven’t tried again.",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Quick to learn and use",
+        "reviewText": "Easy to use, good size",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Love it",
+        "reviewText": "Replaced my old slow cooker with this and I am very happy with it.",
+        "date": "April 11, 2019"
+    },
+    {
+        "reviewTitle": "High quality product.",
+        "reviewText": "Excellent",
+        "date": "April 10, 2019"
+    },
+    {
+        "reviewTitle": "You will wonder how you made it this far without instant pot.",
+        "reviewText": "Best tool in my kitchen.  So many things to make and cook fast.",
+        "date": "April 6, 2019"
+    },
+    {
+        "reviewTitle": "Great product!",
+        "reviewText": "I love my Instapot!  It’s easy to use and easy to clean.",
+        "date": "April 6, 2019"
+    },
+    {
+        "reviewTitle": "Love",
+        "reviewText": "Love everything about it. Makes making meals so much easier and faster!",
+        "date": "April 4, 2019"
+    },
+    {
+        "reviewTitle": "Works Good",
+        "reviewText": "Works Good and wi-fi works good",
+        "date": "April 3, 2019"
+    },
+    {
+        "reviewTitle": "The wifi works great every time and is very useful.",
+        "reviewText": "I do my Instant Pot cooking downstairs from my living area. I used to setup a camera to keep an eye on things. Now I just load up the pot, put the lid on and enter all the settings  on my iPad or phone. The app will tell me when the pressure starts and ends and I can watch for burn warnings.",
+        "date": "April 3, 2019"
+    },
+    {
+        "reviewTitle": "Love my insta pot",
+        "reviewText": "does everything great - nice and heavy duty Cooks like a charm",
+        "date": "April 2, 2019"
+    },
+    {
+        "reviewTitle": "For the foodie that's also a techie",
+        "reviewText": "There might be cheaper pressure cookers, but this is the one to get if you want to control your pressure cooker with a phone app. Did I pay a $50 premium to use my phone to start cooking? Yes. Yes I did. But the best thing about the instant pot is the sauté feature, which allows me to brown meat and sauté onions straight in the pot, which also allows it to get up to pressure temp faster. And since I love cooking and braising meats that usually take hours on the stove, this one is a huge time saver.",
+        "date": "April 1, 2019"
+    },
+    {
+        "reviewTitle": "Daily usage!",
+        "reviewText": "Wife loves it!",
+        "date": "April 1, 2019"
+    },
+    {
+        "reviewTitle": "Instant pot WiFi",
+        "reviewText": "Enjoy not being in the same room with the instant pot. Communicates well. Made rice well. Bone soup well. Ribs turned out great.",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Amazing",
+        "reviewText": "Only used it a few times so far but it’s amazing. I can even control it with my phone.",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Good",
+        "reviewText": "Love it",
+        "date": "March 13, 2019"
+    },
+    {
+        "reviewTitle": "It’s not so good",
+        "reviewText": "It’s just ok for me",
+        "date": "March 11, 2019"
+    },
+    {
+        "reviewTitle": "I had high hopes ... but",
+        "reviewText": "I have had the Instant Pot Duo for some time now. after I dropped and dented it, my dog got ahold of the valve and then I melted the handle on the stove, I decided to buy a new one. I’m a tech geek, so I bought the WiFi model. Set up was pretty easy but the valve is really touchy. It doesn’t really work unless I stand over it (hello, no benefits to WiFi).  Then, I se up first meal. Chicken noodle soup. I used a recipe in the app - tried to cook and it said it wasn’t connected. Fail. Couldn’t get it connected. I’ll keep trying but you might want to stick with a basic model.",
+        "date": "March 10, 2019"
+    },
+    {
+        "reviewTitle": "A plus for anyone",
+        "reviewText": "Ease of use is simple. Food tastes awesome.",
+        "date": "March 10, 2019"
+    },
+    {
+        "reviewTitle": "very disappointed",
+        "reviewText": "Error C6 after according to a month of use. It's  a bad pressure sensor. The device is therefore unusable. Do not recommend this product.Also, be aware of the product's limited warranty, which only applies in the United States and Canada. This information was never specified during the order.I ordered this product in December 2018 and Amazon delivered it to me without any problem in the French West Indies. I paid more for shipping than for product. Unfortunately 30 days later it does not work anymore, so it's a great product. Not living in the coverage area, so I can not do anything. This is scam because today, coincidentally, Amazon no longer delivers my geographical area.",
+        "date": "March 10, 2019"
+    },
+    {
+        "reviewTitle": "Que llegue a tiempo y en buenas condiciones",
+        "reviewText": "Muy buen producto",
+        "date": "March 10, 2019"
+    },
+    {
+        "reviewTitle": "This thing is GREAT",
+        "reviewText": "Using this is so easy. There are tons of places online to get different recipes and having control from my phone is a great bonus. You can take a 3-4 lb roast that has been in a deep freeze set at 0F and have it fork tender in just over 2 hours. That's not + thaw time. That is straight from the freezer into the pot and only adding some liquid as a base.",
+        "date": "March 9, 2019"
+    },
+    {
+        "reviewTitle": "Junk",
+        "reviewText": "Worst piece of junk on the market. WIFI didn't work. Called tech support for help and tried unsuccessfully to get it to work.",
+        "date": "March 8, 2019"
+    },
+    {
+        "reviewTitle": "Instant Pot",
+        "reviewText": "Nice but a little hard to use",
+        "date": "March 8, 2019"
+    },
+    {
+        "reviewTitle": "Best Investment",
+        "reviewText": "This is one of the best investments I ever made.  I use it 2 x day.  I stopped using the stove and the oven.  I cook everything in in the Instapot.  Plus I save time. For example, I can have Baked Potatoes in 20 minutes.",
+        "date": "March 8, 2019"
+    },
+    {
+        "reviewTitle": "Great addition to my kitchen",
+        "reviewText": "This is a wonderful addition to my kitchen and helped delete a couple. This isn't you mother or grandmother's pressure cooker. It is far easier to use, doesn't 'blow up' and is really easy to clean. One pan for saute, cook and keep warm. It is also the steamer and slow cooker. Granted, you can't do two things at once so a little planning is required. Most of the time listed for prep is longer, but I am slow. I liked it so well, gave one our daughter. She likes being able to get the meal on the table in just a short time. There are lots of recipes out there on the internet so buying a cookbook is only needed if you really want the book. You can find and some conversion instructions there as well. The timer let's you set up a time delay for the slow  cooker part. You can go from frozen to cooked as well.  I have had no problems with it.",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Works great",
+        "reviewText": "WiFi isn’t so good",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Don’t think",
+        "reviewText": "Just get it",
+        "date": "February 6, 2019"
+    },
+    {
+        "reviewTitle": "Works",
+        "reviewText": "Cook",
+        "date": "February 6, 2019"
+    },
+    {
+        "reviewTitle": "Good and bad",
+        "reviewText": "Received Instant Pot as a gift. For me it works best with soups and curries. Does an excellent job with the frying of onions, spices, etc. and then moves into the final stages all in one pot.Now if that was it I'd be a happy camper. The SS pot is not easy to get properly clean. It seems modern day made in China stainless steel isn't the same quality as my old SS pots. The old ones clean up easily whereas these pots remain stained unless you scrub with Barkeepers Friend or similar and then rinse and soap off the reside that the BKF leaves behind. Dishwasher just makes it all worse.",
+        "date": "February 5, 2019"
+    },
+    {
+        "reviewTitle": "POS",
+        "reviewText": "Thing drops from a standard 2.4GHZ all the time. The app is useless. Do yourself a favor and look at other pressure cookers.",
+        "date": "February 5, 2019"
+    },
+    {
+        "reviewTitle": "Our favorite kitchen gadget",
+        "reviewText": "The wireless feature is incredibly easy to use and integrated well with the app",
+        "date": "February 4, 2019"
+    },
+    {
+        "reviewTitle": "Don’t really need the WiFi",
+        "reviewText": "Cooks super fastTakes some getting used too on how to use had to watch some YouTube videos directions are not goodWish I wouldn’t have bought the smart oneI don’t care for the WiFi it cooks so fast you really never leave it un attended couldn’t even connect it because it needs the WiFi to run a specific way to connect so I just didn’t bother",
+        "date": "February 4, 2019"
+    },
+    {
+        "reviewTitle": "I am a sucker for bells and whistles, but glad I got this one with WIFI",
+        "reviewText": "I love this cooker and especially like the WIFI connection.  I do not have to hang around waiting to be sure it is heating up properly and I like being alerted when it is done.  I have cooked a dozen meals already and it is so easy and so fast.  Love the sauté feature, and the high sides of the pot keep splashing to a minimum.  I did immediately purchase a steam diverter and an accessory kit and I am happy with those purchases as well, they should be included with the IP, although some people might not be as adventurous a cook as I am.",
+        "date": "February 4, 2019"
+    },
+    {
+        "reviewTitle": "Safe if you read the instructions.",
+        "reviewText": "Controls can be confesing at first.",
+        "date": "February 3, 2019"
+    },
+    {
+        "reviewTitle": "No temperature readout.",
+        "reviewText": "I have just set up and tested my smart pot.  It took several tries to get it to connect to wifi.  The thing that shocked me is the fact that there is no digital readout of temperature.  You actually have to open the pot and check the temperature with a manual thermometer.  I can’t imagine why they wouldn’t have included that feature since it would be so easy to add it.  All you get is a cartoon thermometer, with no calibrations, showing a red line that goes up and down with temperature.",
+        "date": "February 3, 2019"
+    },
+    {
+        "reviewTitle": "Amazing",
+        "reviewText": "I really enjoy this product. My only issue is that I wish there was an ability to select the desired temperature. At the very least, I should be able to view it...",
+        "date": "February 3, 2019"
+    },
+    {
+        "reviewTitle": "I like it for some things",
+        "reviewText": "I like this for certain things - like soup, or chicken.  But I'm finding I don't like the taste of beef when I cook it in the Instant Pot....maybe I'm doing something wrong.  I'll stick to slow cooking or using my stove top and oven for beef.",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Instant food just the way I like it",
+        "reviewText": "I asked my wife what she thought and she said 'mmm I love my instapot more than my hubby' ",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Nice device and works well but have not seen the benefits of the wifi",
+        "reviewText": "I do like the speed to prepare meals, the size if good for a family of four but I really can not see the need for the wifi if you use the pressure cooker because it prepares meals minutes.  Seems sold and well build but only time will tell how it hold up.",
+        "date": "March 8, 2019"
+    },
+    {
+        "reviewTitle": "good",
+        "reviewText": "Quick delivery and product as advertised.",
+        "date": "March 7, 2019"
+    },
+    {
+        "reviewTitle": "Great product",
+        "reviewText": "Works great love it",
+        "date": "March 7, 2019"
+    },
+    {
+        "reviewTitle": "Great Product",
+        "reviewText": "This is an amazing purchase. My wife loves this thing.Bluetooth is a little wonky, but who cares - you may use that once or twice and then the new is worn off.On the other hand, since Christmas, this has become a major appliance never leaving the countertop and is used almost daily.",
+        "date": "March 7, 2019"
+    },
+    {
+        "reviewTitle": "Making meals quick and easy",
+        "reviewText": "Love the simplicity and ease of use. Fairly easy to clean but does require some scrubbing.",
+        "date": "March 6, 2019"
+    },
+    {
+        "reviewTitle": "Can’t Waitto Use it",
+        "reviewText": "I haven’t used it however looks nice. I’m excited about learning how to use it.",
+        "date": "March 5, 2019"
+    },
+    {
+        "reviewTitle": "Not as impressive as I'd hoped",
+        "reviewText": "WiFi was hard to set up - didn't work as expected and the tech support had very limited hours. When I did get in touch it took her several tried and 30 minutes to get it set up.  I tried a couple of recipes and found that food stuck whether on pressure cook or slow cook.  It seemed like it would have been just as easy to cook stovetop and/or in the oven.  I really want to love it but. . .",
+        "date": "March 5, 2019"
+    },
+    {
+        "reviewTitle": "Wow wat a great pressure cooker",
+        "reviewText": "Wife absolutely loves it",
+        "date": "March 5, 2019"
+    },
+    {
+        "reviewTitle": "The wifi and app setting does not work.",
+        "reviewText": "Second week of using the instant pot and it seems to be a good fit for our family. However my husband bought this for me excited about the wifi and the app. That part is a complete joke and waste of money. Other then that it’s getting me to make new recipes. 😊",
+        "date": "March 4, 2019"
+    },
+    {
+        "reviewTitle": "Great!",
+        "reviewText": "Great!",
+        "date": "March 4, 2019"
+    },
+    {
+        "reviewTitle": "Amazing!",
+        "reviewText": "So good! Lots of recipes online too!",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "It’s OK",
+        "reviewText": "Ok, this thing is fanstastic for making tender meats and rice very quickly. Do I use it every day? No. Could I live without it? Yup. It’s a nice product but a little overhyped, I feel. The WiFi feature is a dud, no biggie. It’s a pressure cooker, no better than any other pressure cooker; I got caught up in the hype wave and while I don’t regret my purchase, I probably wouldn’t buy this again. It takes up a lot of kitchen space for something I use every couple of weeks, if that.",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Love it",
+        "reviewText": "I love how fast I can make dinners!!!",
+        "date": "January 12, 2019"
+    },
+    {
+        "reviewTitle": "Easy to set up and use.",
+        "reviewText": "There are so many items  that this can be used to prepare! We have barely scratched the surface. Steaming vegetables is quick and easy.Various meats (roast, ribs, etc) come out tender in a fraction of the time.",
+        "date": "January 12, 2019"
+    },
+    {
+        "reviewTitle": "Buy it, now",
+        "reviewText": "If you don't have one, get one. It's amazing!",
+        "date": "January 12, 2019"
+    },
+    {
+        "reviewTitle": "Works Well",
+        "reviewText": "Read all the hype so bought one as a present ( I don't cook) and it works well very practical. Most trimings are close to normal ovens and you have to be careful not to use to much moisture but quality of food and ease of preparation plus cleaning are excellent",
+        "date": "January 12, 2019"
+    },
+    {
+        "reviewTitle": "Awesome",
+        "reviewText": "Best purchase I ever made. This is truly an awesome product.",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "Broken",
+        "reviewText": "Cannot connect to my phone, something is broken in the system.",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "WiFi feature.... game changer.",
+        "reviewText": "Love the instapot in general, but the WiFi feature.... BOMB.COM!!!!!I start this guy while I’m at the gym.... FROM MY PHONE!!!!!!!!!!",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "Would buy again",
+        "reviewText": "I love everything about this device the only thing I'm mad about is that I didn't buy it any sooner. I'm glad I got it during a sale but I'd absolutely pay full price for it knowing how well it operates now after the fact.",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "Doesn't work",
+        "reviewText": "I got it but never worked... wont hold pressure",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "Great quality still learning to use it",
+        "reviewText": "Great quality still learning to use itThe app isn’t so impressive I go to Pinterest to get ideas and times",
+        "date": "January 11, 2019"
+    },
+    {
+        "reviewTitle": "Very handy dandy",
+        "reviewText": "I like the ease of cooking and connecting to a smart device, it makes meal preparation much easier for a single person.  The receipes could use work because when you type in certain ingrediants some of the items that show up do not use what I typed in.",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Won’t connect to my WiFi!",
+        "reviewText": "Won’t connect to my WiFi!",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "The best thing since the invention of a stove",
+        "reviewText": "The best thing since the invention of a stove",
+        "date": "February 10, 2019"
+    },
+    {
+        "reviewTitle": "Great",
+        "reviewText": "Easy to use with lots of recipes available online",
+        "date": "February 10, 2019"
+    },
+    {
+        "reviewTitle": "WiFi Instant Pot",
+        "reviewText": "This item was NOT for me.  The book had one set of instructions, times, and temps, and the app for it had completely different information.  So you were either over cooking, or under cooking your food  because you didn’t know which one to follow :-(. I returned it after two uses :-(",
+        "date": "February 10, 2019"
+    },
+    {
+        "reviewTitle": "Cocina",
+        "reviewText": "Esta comoda moderna buen tamaño.",
+        "date": "February 10, 2019"
+    },
+    {
+        "reviewTitle": "Excelent",
+        "reviewText": "Best purchase ever",
+        "date": "February 9, 2019"
+    },
+    {
+        "reviewTitle": "Great",
+        "reviewText": "Bought this for my daughter and she LOVES it! Says she couldnt live without it",
+        "date": "February 9, 2019"
+    },
+    {
+        "reviewTitle": "Need a easier way to make dinner? This is it!",
+        "reviewText": "You can cook anything in this thing, we love a good beef pot roast and it only  takes about an hour. The meat is so tender its really amazing.",
+        "date": "February 8, 2019"
+    },
+    {
+        "reviewTitle": "Best gift ever!",
+        "reviewText": "Great for all types of dishes!",
+        "date": "February 8, 2019"
+    },
+    {
+        "reviewTitle": "Nice",
+        "reviewText": "Like it",
+        "date": "February 7, 2019"
+    },
+    {
+        "reviewTitle": "Makes cooking easy!",
+        "reviewText": "Easy to cook, easy to clean and we love this product. We really love that we can operate it from our phone! Awesome!",
+        "date": "February 6, 2019"
+    },
+    {
+        "reviewTitle": "Great product",
+        "reviewText": "Worth the money",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Saves time, great cooking.",
+        "reviewText": "Great product, I don't use the stove anymore, you can cook frozen food out of the freezer! Lots of recipes, time saver plus you can star or stop it from the app any were!",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "Very good item",
+        "reviewText": "Very good item.. easy cooking and good taste especially meat",
+        "date": "February 3, 2019"
+    },
+    {
+        "reviewTitle": "Dinner made easy",
+        "reviewText": "Makes making dinner easy",
+        "date": "February 3, 2019"
+    },
+    {
+        "reviewTitle": "Fast, tender cooking in less than an hour!",
+        "reviewText": "I was very hesitant to buy one of these because the concept of cooking food so quickly seems skeptical to me. But I’m so glad I took the leap!!!  It’s now my favorite kitchen appliance.",
+        "date": "February 2, 2019"
+    },
+    {
+        "reviewTitle": "Awesome",
+        "reviewText": "This thing is awesome. We make several meals a week in it",
+        "date": "February 2, 2019"
+    },
+    {
+        "reviewTitle": "Wifi dead in a few months",
+        "reviewText": "Work great.  I like the wifi feature.  However, the wifi stopped working. Tried all the method but still not working.  Reset every thing and event creating a new instant pot account to wifi pair fresh but no luck.  Without wifi, is is not what I was purchasing for.  I would not recommend this if you want to wifi feature.",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "A little complicated",
+        "reviewText": "You definitely need to read the instructions as you can get hurt.",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "Love it!",
+        "reviewText": "It functions just as I imagined. I have used it several times and haven't been disappointed.",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "So easy",
+        "reviewText": "Amazing.  I wish I had converted sooner.  Never eat tough meat again!",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "Love!",
+        "reviewText": "No complaints!",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "Cooks great",
+        "reviewText": "Great instant pot. Only wished it came with a steamer. Takes the long wait out if waiting for food",
+        "date": "February 1, 2019"
+    },
+    {
+        "reviewTitle": "I like it so much!",
+        "reviewText": "I  like  it so much! It really good for cooking!",
+        "date": "December 2, 2018"
+    },
+    {
+        "reviewTitle": "Record time Cooking to perfection",
+        "reviewText": "Throw out your Slow Cooker, rice maker. Make room for the best product I have bought in ages. Food is wonderful and doing a 1/4 of the time.",
+        "date": "November 30, 2018"
+    },
+    {
+        "reviewTitle": "a must have",
+        "reviewText": "my wife use this pressure cook very often, beef and pork came out juice and tender, love it very much.",
+        "date": "January 16, 2019"
+    },
+    {
+        "reviewTitle": "new product still has bugs to work out.",
+        "reviewText": "Half to precook some of your meats to look good and to cook properly. Makes everything fast. Not easy to clean the edges inside. (don't have a dish washer)",
+        "date": "January 15, 2019"
+    }
+]
