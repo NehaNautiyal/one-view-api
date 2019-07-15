@@ -1,7 +1,9 @@
 var express = require("express");
 var mongoose = require("mongoose");
+var UUID = require("uuid");
+var bcrypt = require("bcryptjs");
 var cors = require("cors");
-require('dotenv').config({silent: true});
+require('dotenv').config({ silent: true });
 
 var PORT = process.env.PORT || 3000;
 
@@ -16,7 +18,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -30,6 +32,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // Import routes and give the server access to them.
 require("./routes/apiRoutes")(app);
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log("App now listening at localhost:" + PORT);
 });
