@@ -161,7 +161,7 @@ module.exports = function (app) {
 
             db.User.create(userData, (error, result) => {
                 if (error) {
-                    return response.status(500).send(error);
+                    return res.status(500).send(error);
                 }
                 console.log(result)
                 console.log("result")
