@@ -64,16 +64,6 @@ module.exports = function (app) {
     // });
 
     // Route for getting all Reviews from the db
-    app.get('/api/reviews', function (req, res) {
-        // grabs all of the reviews
-        db.Review.find({})
-            .then(function (reviews) {
-                res.json(reviews)
-            })
-            .catch(function (error) {
-                res.json(error)
-            })
-    })
 
     app.post('/api/post', cors(), urlencodedParser, function (req, res) {
         console.log('post successful')
@@ -141,7 +131,7 @@ module.exports = function (app) {
                 res.json(error)
             })
     })
-    app.post("/api/signup", (req, res) => {
+    app.post("/api/users", (req, res) => {
         console.log("post to /api/signup successful");
         console.log("req.body:");
         console.log(req.body);
@@ -161,6 +151,38 @@ module.exports = function (app) {
 
             db.User.create(userData, (error, result) => {
                 if (error) {
+                    return res.status(500).send(error);
+                }
+                console.log(result)
+                console.log("result")
+                res.send(result);
+    
+            })
+        }
+    })
+    app.get("/api/users", (req, res) => {
+        console.log("GET ROUTE /api/login successful");
+        console.log("req.body:");
+        console.log(req.body);
+        console.log('req.params:');
+        console.log(req.params);
+    
+        if (!req.body.username) {
+            return res.status(401).send({ "message": "A `username` is required" });
+        }
+        if (!req.body.password) {
+            return res.status(401).send({ "message": "A `password` is required" });
+        }
+        if (req.body.username && req.body.password) {
+    
+            let userData = {
+                username: req.body.username,
+                password: req.body.password
+            }
+
+            db.User.findOne(userData, (error, result) => {
+                if (error) {
+                    console.log('hit db error');
                     return res.status(500).send(error);
                 }
                 console.log(result)
