@@ -158,14 +158,14 @@ module.exports = function (app) {
                 username: req.body.username,
                 password: req.body.password
             }
-    
-            db.User.insert(userData, (error, result) => {
+
+            db.User.create(userData, (error, result) => {
                 if (error) {
                     return response.status(500).send(error);
                 }
                 console.log(result)
                 console.log("result")
-                response.send(result);
+                res.send(result);
     
             })
         }
