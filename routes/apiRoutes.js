@@ -141,4 +141,33 @@ module.exports = function (app) {
                 res.json(error)
             })
     })
+    app.post("/api/signup", (req, res) => {
+        console.log("post to /api/signup successful");
+        console.log("req.body:");
+        console.log(req.body);
+    
+        if (!req.body.username) {
+            return res.status(401).send({ "message": "A `username` is required" });
+        }
+        if (!req.body.password) {
+            return res.status(401).send({ "message": "A `password` is required" });
+        }
+        if (req.body.username && req.body.password) {
+    
+            let userData = {
+                username: req.body.username,
+                password: req.body.password
+            }
+    
+            db.User.insert(userData, (error, result) => {
+                if (error) {
+                    return response.status(500).send(error);
+                }
+                console.log(result)
+                console.log("result")
+                response.send(result);
+    
+            })
+        }
+    })
 }

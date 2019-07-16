@@ -15,7 +15,7 @@ const testuser = require("../lib/sampleuser.json");
 module.exports = function (app) {
 
     // POST / account – Create a new user profile with account information
-    app.post("/api/login", (req, res) => {
+    app.post("/api/signup", (req, res) => {
         if (!req.body.username) {
             return res.status(401).send({ "message": "A `username` is required" });
         } else if (!req.body.password) {
