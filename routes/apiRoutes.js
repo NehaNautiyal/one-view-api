@@ -160,7 +160,7 @@ module.exports = function (app) {
             })
         }
     })
-    app.get("/api/users", (req, res) => {
+    app.post("/api/users/:username", (req, res) => {
         console.log("GET ROUTE /api/login successful");
         console.log("req.body:");
         console.log(req.body);
