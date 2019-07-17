@@ -135,7 +135,7 @@ module.exports = function (app) {
         console.log("post to /api/signup successful");
         console.log("req.body:");
         console.log(req.body);
-    
+
         if (!req.body.username) {
             return res.status(401).send({ "message": "A `username` is required" });
         }
@@ -143,7 +143,7 @@ module.exports = function (app) {
             return res.status(401).send({ "message": "A `password` is required" });
         }
         if (req.body.username && req.body.password) {
-    
+
             let userData = {
                 username: req.body.username,
                 password: req.body.password
@@ -156,7 +156,7 @@ module.exports = function (app) {
                 console.log(result)
                 console.log("result")
                 res.send(result);
-    
+
             })
         }
     })
@@ -166,7 +166,7 @@ module.exports = function (app) {
         console.log(req.body);
         console.log('req.params:');
         console.log(req.params);
-    
+
         if (!req.body.username) {
             return res.status(401).send({ "message": "A `username` is required" });
         }
@@ -174,7 +174,7 @@ module.exports = function (app) {
             return res.status(401).send({ "message": "A `password` is required" });
         }
         if (req.body.username && req.body.password) {
-    
+
             let userData = {
                 username: req.body.username,
                 password: req.body.password
@@ -188,8 +188,35 @@ module.exports = function (app) {
                 console.log(result)
                 console.log("result")
                 res.send(result);
-    
+
             })
         }
+    })
+    app.post("/api/savereviews/:id", (req, res) => {
+        console.log("Reviews POST succesful");
+        console.log("req.body:");
+        console.log(req.body);
+        console.log('req.params:');
+        console.log(req.params);
+
+
+        let reviewData = {
+            score: req.body.score,
+            reviews: req.body.reviews,
+            targets: req.body.targets,
+            usage: req.body.usage,
+            tags: req.body.tags
+        }
+
+        db.SaveReview.create(reviewData, (error, result) => {
+            if (error) {
+                return res.status(500).send(error);
+            }
+            console.log(result)
+            console.log("result")
+            res.send(result);
+
+        })
+
     })
 }
