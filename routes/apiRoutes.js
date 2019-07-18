@@ -24,9 +24,10 @@ async function yellow(ASIN, keywordString) {
         console.log(`totalReviewCount in async function: ${totalReviewCount2}`)
         if (totalReviewCount2 === 0) {
             console.log('Using sample data, not Amazon')
-            let sortedReviews = sample
+            let sortedReviews = sample;
             let analysis = await watson.analyzeAllReviews(sortedReviews, keywordString)
-            let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString)
+            // let matchedReviews = await mongo.findReviewsContainingKeyword(keywordString)
+            let matchedReviews = sample;
             // console.log(matchedReviews)
             console.log('above is matchedReviews')
             return { analysis, matchedReviews }
