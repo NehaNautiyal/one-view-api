@@ -21,6 +21,10 @@ const SaveReviewSchema = new Schema({
     tags: {
         type: Array,
         required: false
+    },
+    ASIN: {
+        type: String,
+        required: true
     }
 });
 
