@@ -205,7 +205,8 @@ module.exports = function (app) {
             reviews: req.body.reviews,
             targets: req.body.targets,
             usage: req.body.usage,
-            tags: req.body.tags
+            tags: req.body.tags,
+            ASIN: req.body.ASIN
         }
 
         db.SaveReview.create(reviewData, (error, result) => {
